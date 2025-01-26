@@ -7,12 +7,15 @@ Tools provide automatic video conversion under the expectation that the video fi
 Funtionality:
 -------------
 The script searches all mp4 files and corresponding audio footage files with different language footages.
-The exceptation is for example:
+
+The expectation is for example:
+```
 video-test-instructions.mp4
 video-test-instructions_A1-original.wav
 video-test-instructions_A2-cs.wav
 video-test-instructions_A3-es.wav
 video-test-instructions_A4-en.wav
+```
 
 what corresponds to the situation when kdenlive outputs video without audio tracks and (in this case) four audio tracks, original and 3 variants.
 
@@ -30,7 +33,7 @@ Use case in this case is:
 Target example:
 ---------------
 For the example above, the following command will be produced:
-
+```
 ffmpeg -i video-test-instructions.mp4 \
 -i video-test-instructions_A1-original.wav \
 -i video-test-instructions_A2-cs.wav \
@@ -43,14 +46,19 @@ ffmpeg -i video-test-instructions.mp4 \
 -metadata:s:a:2 title="Spanish audio" -metadata:s:a:2 language=es \
 -metadata:s:a:3 title="English audio" -metadata:s:a:3 language=en \
 -c:v copy -c:a aac -q:a 0 output-video-test-instructions.mp4
+```
 
 Dependencies:
 -------------
+```
 ffmpeg
 python
+```
 
 Usage:
 ------
+```
 python merge.py
+```
 
 
